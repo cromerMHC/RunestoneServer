@@ -67,6 +67,6 @@ settings.sched_logger = (
     settings.logger
 )  # works for production where sending log to syslog but not for dev.
 settings.log_level = logging.DEBUG
-settings.python_interpreter = sys.executable
-
+#settings.python_interpreter = sys.executable
+settings.python_interpreter = "python3.8"
 settings.pretext_delimiters = ("~._", "_.~")
