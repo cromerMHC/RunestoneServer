@@ -7,6 +7,11 @@ info () {
     echo "I: $@"
 }
 
+chmod +x /usr/local/sbin/setupHttps.sh
+/usr/local/sbin/setupHttps.sh
+
+# exit
+
 # This file will exist if we've initialized postgres
 stamp=/var/lib/postgresql/11/main/initialized.stamp
 
