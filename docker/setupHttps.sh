@@ -17,7 +17,9 @@ if test -f "$certFile"; then
     cp $siteFile /etc/nginx/sites-enabled/runestone
     echo "HTTPS Setup"
     # exit 0
+else
+	echo "HTTPS files not found - using HTTP instead."	
 fi
 
-echo "HTTPS files not found - using HTTP instead."
+
 # exit 1
