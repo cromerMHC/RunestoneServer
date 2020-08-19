@@ -102,6 +102,7 @@ WORKDIR ${WEB2PY_PATH}
 # All configuration will be done within entrypoint.sh upon initial run
 # of the container
 COPY docker/entrypoint.sh /usr/local/sbin/entrypoint.sh
+COPY docker/setupHttps.sh /usr/local/sbin/setupHttps.sh
 
 # Copy configuration files to get nginx and uwsgi up and running
 RUN mkdir -p /etc/nginx/sites-enabled
@@ -112,5 +113,16 @@ COPY docker/wsgihandler.py /srv/web2py/wsgihandler.py
 COPY scripts/logging.conf /srv/web2py/logging.conf
 RUN ln -s /etc/systemd/system/uwsgi.service /etc/systemd/system/multi-user.target.wants/uwsgi.service
 RUN rm /etc/nginx/sites-enabled/default
+
+#copy over SSL keys/config
+#COPY docker/ssl/runestone.crt /etc/ssl/certs/runestone.crt
+#COPY docker/ssl/runestone.key /etc/ssl/private/runestone.key
+#COPY docker/nginx/snippets/self-signed.conf /etc/nginx/snippets/self-signed.conf
+#COPY docker/nginx/snippets/ssl-params.conf /etc/nginx/snippets/ssl-params.conf
+
+RUN mkdir /sslData
+
+#generate dhparam.pem file
+RUN openssl dhparam -out /etc/ssl/certs/dhparam.pem 2048
 
 CMD /bin/bash /usr/local/sbin/entrypoint.sh
