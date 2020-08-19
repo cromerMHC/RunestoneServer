@@ -4,3 +4,4 @@ services:
     runestone:
         volumes:
             - ../RunestoneComponents:/srv/RunestoneComponents
+            - ./docker/sslFiles:/sslData
