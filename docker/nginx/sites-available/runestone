@@ -1,5 +1,9 @@
 server {
-    listen  80 default_server;
+    listen 443 ssl;
+    listen [::]:443 ssl;
+    include snippets/self-signed.conf;
+    include snippets/ssl-params.conf;
+    
     include /etc/nginx/default.d/*.conf;
 
     # Rewrite the path to static files.
@@ -20,4 +24,13 @@ server {
         uwsgi_param	DBURL	postgresql://runestone:passworda@localhost/runestone;
         uwsgi_param     WEB2PY_CONFIG development;
     }
+}
+
+server {
+    listen 80;
+    listen [::]:80;
+
+    server_name 127.0.0.1;
+
+    return 302 https://$server_name$request_uri;
 }
