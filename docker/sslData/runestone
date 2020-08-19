@@ -30,7 +30,7 @@ server {
     listen 80;
     listen [::]:80;
 
-    #server_name 127.0.0.1;
+    server_name rune.cs.mtholyoke.edu www.rune.cs.mtholyoke.edu;
 
     return 302 https://$server_name$request_uri;
 }
