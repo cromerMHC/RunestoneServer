@@ -8,5 +8,4 @@ services:
 
     db:
       volumes:
-        - ../database/data:/var/lib/postgresql/data
-        
+        - ../database/activeData:/var/lib/postgresql/data
