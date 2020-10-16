@@ -64,3 +64,5 @@ htmlcov
 sphinx-enki-info.txt
 _builddoctrees
 .venv
+docker/sslData/*.key
+docker/sslData/*.crt
