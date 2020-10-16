@@ -34,6 +34,9 @@ settings.academy_mode = True
 settings.lti_only_mode = False
 settings.coursera_mode = False
 
+settings.jobe_server = "http://jobe"
+settings.jobe_key = ''
+
 # Do not control this with hostnames
 config = environ.get("WEB2PY_CONFIG", "NOT SET")
 

@@ -11,6 +11,9 @@ services:
   redis:
     image: redis
 
+  jobe:
+    image: trampgeek/jobeinabox:latest
+
   runestone:
     image: runestone/server
     restart: always
@@ -20,6 +23,7 @@ services:
     links:
       - db
       - redis
+      - jobe
     ports:
       - "80:80"
       - "443:443"

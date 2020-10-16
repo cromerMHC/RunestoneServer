@@ -5,3 +5,8 @@ services:
         volumes:
             - ../RunestoneComponents:/srv/RunestoneComponents
             - ./docker/sslData:/sslData
+
+    db:
+      volumes:
+        - ../database/data:/var/lib/postgresql/data
+        
